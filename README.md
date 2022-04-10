@@ -8,4 +8,4 @@ It may be run from this URL: https://johnsauter.github.io/UNH_bootcamp-04-quiz/
 
 Here is a screenshot of the application running:
 
-![Coding Quiz screenshot](./Assets/Coding_Quiz.png)
+![Coding Quiz screenshot](./assets/Coding_Quiz.png)
