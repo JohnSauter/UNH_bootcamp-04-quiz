@@ -5,45 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Quiz</title>
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="Assets/css/style.css" />
   </head>
   <body>
     <div class="wrapper">
       <header>
         <h1>Quiz</h1>
+        <button id="start_button" class=""start" type=""button">
+          Start the quiz
+        </button>
       </header>
-      <div class="card">
+
+      <div class="card">          <!-- question -->
         <div class="card-header">
           <h2>Question:</h2>
         </div>
         <div class="card-body">
-          <textarea
-            readonly
-            id="question"
-            placeholder=""
-            aria-label="question">
-          </textarea>
+          <div id="question"></div>
         </div> <!-- card body -->
       </div> <!-- card -->
 
-      <div class="card">
+      <div class="card">          <!-- score -->
         <div class="card-header">
-          <h2>Response:</h2>
+          <h2>Score:</h2>
         </div>
         <div class="card-body">
-          <textarea
-            readonly
-            id="response"
-            placeholder=""
-            aria-label="response">
-          </textarea>
+          <div id="score"></div>
         </div> <!-- card body -->
       </div> <!-- card -->
 
-      <div class="card-footer">
-        <button id="start" class="btn">Start the Quiz</button>
-      </div>
+      <div class="card">         <!-- answers -->
+        <div class="card-header">
+          <h2>Answers:</h2>
+        </div>
+        <div class="card-body">
+          <ol id="answers"></ol>
+        </div> <!-- card body -->
+      </div> <!-- card -->
+
+      <div class="card">          <!-- timer -->
+        <div class="card-header">
+          <h2>Timer:</h2>
+        </div>
+        <div class="card-body">
+          <div id="timer"></div>
+        </div> <!-- card body -->
+      </div> <!-- card -->
+
     </div> <!-- wrapper -->
-    <script src="assets/script/script.js"></script>
+    <script src="Assets/script/script.js"></script>
   </body>
 </html>
