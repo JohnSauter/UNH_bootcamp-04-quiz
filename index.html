@@ -4,19 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Quiz</title>
+    <title>Coding Quiz</title>
     <link rel="stylesheet" href="Assets/css/style.css" />
   </head>
   <body>
     <div class="wrapper">
-      <header>
-        <h1>Quiz</h1>
+      <header id="startup_question">
+        <h1>Coding Quiz challenge</h1>
+        <p>Push the button below to start a multiple-choice quiz.
+          You have 30 seconds to answer the five questions.
+          However, 10 seconds will be deducted from your remaining
+          time for every incorrect answer.
+        </p>
         <button id="start_button" class=""start" type=""button">
           Start the quiz
         </button>
       </header>
 
-      <div class="card">          <!-- question -->
+      <div id="question_card" class="card">          <!-- question -->
         <div class="card-header">
           <h2>Question:</h2>
         </div>
@@ -25,7 +30,7 @@
         </div> <!-- card body -->
       </div> <!-- card -->
 
-      <div class="card">          <!-- score -->
+      <div id="score_card" class="card">          <!-- score -->
         <div class="card-header">
           <h2>Score:</h2>
         </div>
@@ -34,7 +39,7 @@
         </div> <!-- card body -->
       </div> <!-- card -->
 
-      <div class="card">         <!-- answers -->
+      <div id="answers_card" class="card">         <!-- answers -->
         <div class="card-header">
           <h2>Answers:</h2>
         </div>
@@ -43,12 +48,45 @@
         </div> <!-- card body -->
       </div> <!-- card -->
 
-      <div class="card">          <!-- timer -->
+      <div id="timer_card" class="card">          <!-- timer -->
         <div class="card-header">
           <h2>Timer:</h2>
         </div>
         <div class="card-body">
           <div id="timer"></div>
+        </div> <!-- card body -->
+      </div> <!-- card -->
+
+      <div id="save_scores_card" class="card">          <!-- save scores -->
+        <div class="card-header">
+          <p>The quiz is completed.  Would you like to save your score?</p>
+        </div>
+        <div class="card-body">
+          <div id="save_scores">
+            <button id="save_button_yes" class="start" type="button">Yes</button>
+            <button id="save_button_no" class="start" type="button">No</button>
+          </div>
+        </div> <!-- card body -->
+      </div> <!-- card -->
+
+      <div id="give_initials_card" class="card">          <!-- give initials -->
+        <div class="card-header">
+          <p>Please type your initials</p>
+        </div>
+        <div class="card-body">
+          <form id="give_initials">
+              <label for="initials">Your initials:</label>
+              <input id="initials" type="text"></nput>
+          </form>
+        </div> <!-- card body -->
+      </div> <!-- card -->
+
+      <div id="cumulative_score_card" class="card"> <!-- cumulative score -->
+        <div class="card-header">
+          <h2>Cumulative Score:</h2>
+        </div>
+        <div class="card-body">
+          <div id="cumulative_score"></div>
         </div> <!-- card body -->
       </div> <!-- card -->
 

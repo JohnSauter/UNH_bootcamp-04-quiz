@@ -30,3 +30,8 @@ header {
   padding-bottom: 0px;
   color: hsl(206, 17%, 28%);
 }
+
+#question_card, #score_card, #answers_card, #timer_card, 
+  #give_initials_card, #save_scores_card, #cumulative_score_card {
+  display: none
+}
