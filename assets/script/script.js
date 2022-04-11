@@ -26,6 +26,7 @@ give_initials.addEventListener("submit", initials_submitted);
 const initials_field = document.getElementById("initials");
 const cumulative_score_card = document.getElementById("cumulative_score_card");
 const cumulative_score_display = document.getElementById("cumulative_score");
+let quiz_ended_by_timer;
 
 /* The problems object is an array of problem objects.
  * The problem object has three properties: the question, the possible
@@ -107,6 +108,7 @@ function start_quiz () {
   cumulative_score_card.style.display = "none";
 
   /* Start the timer */
+  quiz_ended_by_timer = false;
   timer_counter = 30;
   interval_id = setInterval(one_second, 1000);
   
@@ -117,13 +119,13 @@ function start_quiz () {
   ask_question (0);
 }
 
-/* Function to ask a question.  The parameter is the question number.  */
+/* Function to ask a question.  The parameter is the problem number.  */
 function ask_question (problem_number) {
   current_problem_number = problem_number;
   const current_problem = problems[current_problem_number];
   question_display.innerHTML = current_problem.question;
 
-  /* Create a new li for each answer.  */
+  /* Create a new <li> for each answer.  */
   answer_display.innerHTML = "";
   for (let i = 0; i < current_problem.answers.length; i++) {
     const this_answer = current_problem.answers[i];
@@ -149,6 +151,7 @@ function one_second() {
   if (timer_counter <= 0) {
     timer_display.textContent = "Time is up, no more answering.";
     /* Allow time for the screen to update.  */
+    quiz_ended_by_timer = true;
     setTimeout (quiz_completed, 100);
   }
 }
@@ -169,6 +172,7 @@ function answer_chosen(event) {
       correct_answers = correct_answers + 1;
     } else {
       incorrect_answers = incorrect_answers + 1;
+      /* Giving an incorrect answer takes some time off the clock.  */
       timer_counter = timer_counter - 10;
     }
     score_display.textContent = "Correct: " + correct_answers + 
@@ -177,6 +181,7 @@ function answer_chosen(event) {
       ask_question (current_problem_number + 1);
     } else {
       /* Quiz is completed.  */
+      quiz_ended_by_timer = false;
       setTimeout(quiz_completed, 100);
     }
   }
@@ -190,8 +195,12 @@ function quiz_completed () {
   answer_display.innerHTML = "";
   answers_card.style = "none";
   clearInterval(interval_id);
-  timer_display.textContent = "";
-  timer_card.style.display = "none";
+  /* If the quiz was ended by the timer running out, leave the timer
+   * on display.  */
+  if (!quiz_ended_by_timer) {
+    timer_display.textContent = "";
+    timer_card.style.display = "none";
+  }
   save_scores_card.style.display = "block";
 }
 
